@@ -56,8 +56,6 @@ body {
 
 .points {
   overflow: hidden;
-  padding: 2rem 0;
-  border-top: 2px solid $blue;
 
   &__column {
     box-sizing: border-box;
@@ -77,15 +75,41 @@ body {
       margin-bottom: 1rem;
       text-align: center;
     }
+
+    &--good {
+      .point {
+        border-left-color: #0b0;
+      }
+    }
+
+    &--improve {
+      .point {
+        border-left-color: #b00;
+      }
+    }
+
+    &--previous {
+      .point {
+        border-left-color: $light-grey;
+      }
+    }
+
+    &--action-points {
+      .point {
+        border-left-color: #dd8000;
+      }
+    }
   }
 }
 
 .point {
   position: relative;
-  padding: 1rem 0;
+  padding: 1rem 0 1rem 1.5rem;
+  margin: 1rem 0;
   border-bottom: 1px solid $light-grey;
   overflow: hidden;
   line-height: 140%;
+  border-left: 2px solid;
 
   &:last-of-type, &:only-of-type {
     border-bottom: 0;
@@ -134,6 +158,10 @@ body {
         text-align: center;
       }
     }
+  }
+
+  &--none {
+    border: 0;
   }
 }
 

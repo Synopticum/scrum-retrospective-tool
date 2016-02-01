@@ -15,7 +15,7 @@
   ],
   "isVoting": [
     {
-      "isVoting": false,
+      "isVoting": true,
       "id": 1
     }
   ],
@@ -104,7 +104,7 @@
       "text": "Tests are failed ",
       "isGood": false,
       "notes": [],
-      "votes": 0,
+      "votes": [],
       "id": "cik4418s500033k5535ct865v"
     },
     {
@@ -113,7 +113,7 @@
       "text": "We need more QA",
       "isGood": false,
       "notes": [],
-      "votes": 0,
+      "votes": [],
       "id": "cik441wwm00043k55dgsnj3d0"
     },
     {
@@ -122,7 +122,7 @@
       "text": "late for a meeting",
       "isGood": false,
       "notes": [],
-      "votes": 0,
+      "votes": [],
       "id": "cik442lz000053k55l0gmvqx0"
     },
     {

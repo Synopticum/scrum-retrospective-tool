@@ -132,38 +132,38 @@ class Comp extends React.Component {
     render () {
         return (
             <div>
-                <section className='points'>
-                    <div className="points__column">
+                <section className="points">
+                    <div className="points__column points__column--good">
                         <h2 className="points__column__h">Good Points:</h2>
 
                         <ul>
-                            {_.isEmpty(this.props.appData.points) ? <li className="point">There are no points yet</li> : this.renderPoints(true)}
+                            {_.isEmpty(this.props.appData.points) ? <li className="point point--none">There are no points yet</li> : this.renderPoints(true)}
                         </ul>
                     </div>
 
-                    <div className="points__column">
+                    <div className="points__column points__column--improve">
                         <h2 className="points__column__h">Points to Improve:</h2>
 
                         <ul>
-                            {_.isEmpty(this.props.appData.points) ? <li className="point">There are no points yet</li> : this.renderPoints(false)}
+                            {_.isEmpty(this.props.appData.points) ? <li className="point point--none">There are no points yet</li> : this.renderPoints(false)}
                         </ul>
                     </div>
                 </section>
 
-                <section className='points'>
-                    <div className="points__column">
+                <section className="points">
+                    <div className="points__column points__column--previous">
                         <h2 className="points__column__h">Previous Sprint Action Points:</h2>
 
                         <ul>
-                            {_.isEmpty(this.props.appData.previousActionPoints) ? <li className="point">There are no previous action points yet</li> : this.renderPreviousActionPoints()}
+                            {_.isEmpty(this.props.appData.previousActionPoints) ? <li className="point point--none">There are no previous action points yet</li> : this.renderPreviousActionPoints()}
                         </ul>
                     </div>
 
-                    <div className="points__column">
+                    <div className="points__column points__column--action-points">
                         <h2 className="points__column__h">This Sprint Action Points:</h2>
 
                         <ul>
-                            {_.isEmpty(this.props.appData.actionPoints) ? <li className="point">There are no action points yet</li> : this.renderActionPoints()}
+                            {_.isEmpty(this.props.appData.actionPoints) ? <li className="point point--none">There are no action points yet</li> : this.renderActionPoints()}
                         </ul>
                     </div>
                 </section>

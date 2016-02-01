@@ -105,9 +105,7 @@ body {
   height: 2rem; }
 
 .points {
-  overflow: hidden;
-  padding: 2rem 0;
-  border-top: 2px solid #0096D6; }
+  overflow: hidden; }
   .points__column {
     box-sizing: border-box;
     width: 50%;
@@ -120,13 +118,23 @@ body {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center; }
+    .points__column--good .point {
+      border-left-color: #0b0; }
+    .points__column--improve .point {
+      border-left-color: #b00; }
+    .points__column--previous .point {
+      border-left-color: #ccc; }
+    .points__column--action-points .point {
+      border-left-color: #dd8000; }
 
 .point {
   position: relative;
-  padding: 1rem 0;
+  padding: 1rem 0 1rem 1.5rem;
+  margin: 1rem 0;
   border-bottom: 1px solid #ccc;
   overflow: hidden;
-  line-height: 140%; }
+  line-height: 140%;
+  border-left: 2px solid; }
   .point:last-of-type, .point:only-of-type {
     border-bottom: 0; }
   .point__name {
@@ -158,6 +166,8 @@ body {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         text-align: center; }
+  .point--none {
+    border: 0; }
 
 .voting-counter {
   padding-top: 1rem; }
