@@ -1,0 +1,33 @@
+.table {
+  width: 100%;
+
+  &__thead {
+    &__cell {
+      background: $dark;
+      border: 1px solid $dark;
+      text-align: left;
+      color: $white;
+      padding: 1rem;
+    }
+  }
+
+  &__tbody {
+    &__row {
+      &__cell {
+        color: $dark;
+        border: 1px solid $light-grey;
+        border-top: 0;
+        padding: 1rem;
+        vertical-align: middle;
+
+        &:nth-child(1) {
+          text-align: center;
+        }
+      }
+
+      &:hover &__cell {
+        background: $lightest-grey;
+      }
+    }
+  }
+}

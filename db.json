@@ -1,0 +1,151 @@
+{
+  "available_users": [
+    {
+      "name": "John Doe",
+      "id": 100
+    },
+    {
+      "name": "Jane Doe",
+      "id": 200
+    },
+    {
+      "name": "Bill Gates",
+      "id": 300
+    }
+  ],
+  "isVoting": [
+    {
+      "isVoting": false,
+      "id": 1
+    }
+  ],
+  "sprints": [
+    {
+      "id": 1,
+      "active": false
+    },
+    {
+      "id": 2,
+      "active": true
+    }
+  ],
+  "points": [
+    {
+      "sprintId": 1,
+      "name": "John Doe",
+      "text": "I'm in project! Woohoo!!!",
+      "isGood": true,
+      "notes": [],
+      "votes": 0,
+      "id": "cijm2tjby00003k552c6we9be"
+    },
+    {
+      "sprintId": 1,
+      "name": "Jane Doe",
+      "text": "Tests on Python!",
+      "isGood": true,
+      "notes": [],
+      "votes": 0,
+      "id": "cijm2tvqz00013k557b4ciyvn"
+    },
+    {
+      "sprintId": 1,
+      "name": "Bill Gates",
+      "text": "Good team collaboration",
+      "isGood": true,
+      "notes": [],
+      "votes": 0,
+      "id": "cijm2vsna00033k555gueil1a"
+    },
+    {
+      "sprintId": 1,
+      "name": "Bill Gates",
+      "text": "Some issues with the local enviroment",
+      "isGood": false,
+      "notes": [],
+      "votes": [
+        "Bill Gates",
+        "Jane Doe"
+      ],
+      "id": "cijm2vsna00033k555gueixcv"
+    },
+    {
+      "sprintId": 1,
+      "name": "Bill Gates",
+      "text": "Requirements is not so good",
+      "isGood": false,
+      "notes": [],
+      "votes": [
+        "John Doe"
+      ],
+      "id": "cijm2vsna00033k555gueihps"
+    },
+    {
+      "sprintId": 2,
+      "name": "Bill Gates",
+      "text": "Speed of development has increased",
+      "isGood": true,
+      "notes": [],
+      "votes": 0,
+      "id": "cik440eol00013k55cv0qj3mh"
+    },
+    {
+      "sprintId": 2,
+      "name": "Jane Doe",
+      "text": "Teamwork is good",
+      "isGood": true,
+      "notes": [],
+      "votes": 0,
+      "id": "cik440vqs00023k555lmfybew"
+    },
+    {
+      "sprintId": 2,
+      "name": "Jane Doe",
+      "text": "Tests are failed ",
+      "isGood": false,
+      "notes": [],
+      "votes": 0,
+      "id": "cik4418s500033k5535ct865v"
+    },
+    {
+      "sprintId": 2,
+      "name": "Bill Gates",
+      "text": "We need more QA",
+      "isGood": false,
+      "notes": [],
+      "votes": 0,
+      "id": "cik441wwm00043k55dgsnj3d0"
+    },
+    {
+      "sprintId": 2,
+      "name": "John Doe",
+      "text": "late for a meeting",
+      "isGood": false,
+      "notes": [],
+      "votes": 0,
+      "id": "cik442lz000053k55l0gmvqx0"
+    },
+    {
+      "sprintId": 2,
+      "name": "John Doe",
+      "text": "Inconsistency between UX and back-end",
+      "isGood": false,
+      "notes": [],
+      "votes": 0,
+      "id": "cik443mqk00063k557nqh6n61"
+    }
+  ],
+  "action_points": [
+    {
+      "sprintId": 1,
+      "name": "Bill Gates",
+      "text": "Some issues with the local enviroment",
+      "isGood": false,
+      "notes": [
+        "Fix an issues => Jane Doe"
+      ],
+      "votes": 0,
+      "id": "cik43xyxc00003k55bt8evgnc"
+    }
+  ]
+}

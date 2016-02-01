@@ -1,0 +1,7 @@
+.idea
+node_modules
+*.map
+npm-debug.log
+public/styles/blocks/*.css
+public/styles/modules/*.css
+.DS_Store
