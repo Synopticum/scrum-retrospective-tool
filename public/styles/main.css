@@ -180,7 +180,7 @@ body {
     margin-bottom: .3rem;
     background: #eeeeee; }
 
-.voting-vote {
+.voting-vote, .voting-undo-vote {
   margin-right: 1rem; }
 
 .to-right {

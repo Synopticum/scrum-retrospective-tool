@@ -39,6 +39,11 @@ class Comp extends React.Component {
         this.dispatch(action);
     }
 
+    undoVotePoint (point, sprintId) {
+        const action = actions.undoVotePoint(point, sprintId);
+        this.dispatch(action);
+    }
+
     // need to refactor in the future
     isVoting () {
         return this.props.appState.isVoting[0] && this.props.appState.isVoting[0].isVoting;
@@ -47,10 +52,13 @@ class Comp extends React.Component {
     renderCheck (point) {
         const sprintId = this.props.appState.selectedSprintId;
         const userCanRemovePoints = this.props.appState.isScrumMaster || (this.props.appState.isSprintActive && point.name === localStorage.getItem('loggedAs'));
+        const alreadyVoted = _.contains(point.votes, localStorage.getItem('loggedAs'));
 
         return (
             <div>
-                {!point.isGood && this.props.appState.isSprintActive && this.isVoting() && this.props.appState.isLogged ? <span className='link voting-vote' onClick={this.votePoint.bind(this, point, sprintId)}>Vote</span> : ''}
+                {alreadyVoted && !point.isGood && this.props.appState.isSprintActive && this.isVoting() && this.props.appState.isLogged ? <span className='link voting-undo-vote' onClick={this.undoVotePoint.bind(this, point, sprintId)}>Undo vote</span> : ''}
+                {!alreadyVoted && !point.isGood && this.props.appState.isSprintActive && this.isVoting() && this.props.appState.isLogged ? <span className='link voting-vote' onClick={this.votePoint.bind(this, point, sprintId)}>Vote</span> : ''}
+
                 {userCanRemovePoints && this.props.appState.isSprintActive ? <span className='link' onClick={this.deletePoint.bind(this, point, sprintId)}>Remove Point</span> : ''}
                 {!point.isGood && this.props.appState.isSprintActive && this.isVoting() && this.props.appState.isScrumMaster ?
                     <span className='link to-right' onClick={this.setActionPoint.bind(this, point, sprintId)}>Set as Action Point</span> : ''}

@@ -168,5 +168,53 @@ export default {
                 console.log('You are already voted');
             }
         }
+    },
+
+    undoVotePoint (point, sprintId) {
+        return function (dispatch) {
+            const alreadyVoted = _.contains(point.votes, localStorage.getItem('loggedAs'));
+            const votes = _.filter(point.votes, (item) => {
+                if (item !== localStorage.getItem('loggedAs')) {
+                    return item;
+                }
+            });
+
+            if (alreadyVoted) {
+                point = point.merge({
+                    id: point.id,
+                    votes
+                });
+
+                const optimisticAction = baseActionCreators.updateStart(point);
+                dispatch(optimisticAction);
+
+                const url = `/sprints/${sprintId}/points/${point.id}`;
+                const promise = axios({
+                    url: url,
+                    method: 'PUT',
+                    data: point
+                });
+
+                promise.then(function (response) {
+                    // dispatch the success action
+                    const returned = response.data;
+                    const successAction = baseActionCreators.updateSuccess(returned);
+                    dispatch(successAction);
+
+                    socket.emit('client:voted', point);
+                }, function (response) {
+                    // rejection
+                    // dispatch the error action
+                    const errorAction = baseActionCreators.updateError(response, point);
+                    dispatch(errorAction)
+                }).catch(function (err) {
+                    console.error(err.toString());
+                });
+
+                return promise;
+            } else {
+                console.log('You are already undo');
+            }
+        }
     }
 };
