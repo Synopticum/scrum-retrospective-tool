@@ -179,6 +179,9 @@ body {
     margin-right: .5rem;
     margin-bottom: .3rem;
     background: #eeeeee; }
+    .voting-counter__li--current-user {
+      background: #0b0;
+      color: #fff; }
 
 .voting-vote, .voting-undo-vote {
   margin-right: 1rem; }

@@ -63,7 +63,7 @@ class Comp extends React.Component {
                 {!point.isGood && this.props.appState.isSprintActive && this.isVoting() && this.props.appState.isScrumMaster ?
                     <span className='link to-right' onClick={this.setActionPoint.bind(this, point, sprintId)}>Set as Action Point</span> : ''}
 
-                {!point.isGood && !_.isEmpty(point.votes) && this.props.appState.isSprintActive && this.isVoting() ? <ul className='voting-counter'>{_.map(point.votes, (name) => { return <li key={name} className="voting-counter__li">{name}</li> } )}</ul> : ''}
+                {!point.isGood && !_.isEmpty(point.votes) && this.props.appState.isSprintActive && this.isVoting() ? <ul className='voting-counter'>{_.map(point.votes, (name) => { return <li key={name} className={name === localStorage.getItem('loggedAs') ? "voting-counter__li voting-counter__li--current-user" : "voting-counter__li"}>{name}</li> } )}</ul> : ''}
             </div>
         );
     }

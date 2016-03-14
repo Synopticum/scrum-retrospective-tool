@@ -176,6 +176,11 @@ body {
     margin-right: .5rem;
     margin-bottom: .3rem;
     background: #eeeeee;
+
+    &--current-user {
+      background: #0b0;
+      color: #fff;
+    }
   }
 }
 
