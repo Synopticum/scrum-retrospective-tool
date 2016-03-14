@@ -11,6 +11,7 @@ import isLoggedReducer from './reducers/isLogged';
 import isScrumMasterReducer from './reducers/isScrumMaster';
 import isSprintActiveReducer from './reducers/isSprintActive';
 import isSprintLatestReducer from './reducers/isSprintLatest';
+import votingStatsReducer from './reducers/votingStats';
 
 export default {
     sprintsReducer,
@@ -25,5 +26,6 @@ export default {
     isLoggedReducer,
     isScrumMasterReducer,
     isSprintActiveReducer,
-    isSprintLatestReducer
+    isSprintLatestReducer,
+    votingStatsReducer
 };

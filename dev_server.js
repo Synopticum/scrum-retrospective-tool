@@ -10,6 +10,24 @@ var compiler  = webpack(config);
 var host      = 'localhost';
 var port      = 4003;
 
+// voting state for each retrospective voting saved in memory during the voting
+var currentVoting = {
+    state: {},
+
+    initState: function () {
+        var self = this,
+            users = require('./db.json').available_users;
+
+        this.state = {};
+
+        users.forEach(function (user) {
+            self.state[user.name] = 0;
+        });
+    }
+};
+
+currentVoting.initState();
+
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
@@ -30,6 +48,8 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 io.on('connection', function (socket) {
+    socket.emit('server:votes-stat-updated', currentVoting.state);
+
     // changed sprint
     socket.on('client:active-sprint-changed', (sprintId) => {
         socket.broadcast.emit('server:active-sprint-changed', sprintId);
@@ -65,12 +85,17 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('server:voted', point);
     });
 
-    // user voted
+    socket.on('client:votes-stat-updated', (vote) => {
+        vote.undo ? currentVoting.state[vote.user]-- : currentVoting.state[vote.user]++;
+
+        socket.emit('server:votes-stat-updated', currentVoting.state);
+        socket.broadcast.emit('server:votes-stat-updated', currentVoting.state);
+    });
+
     socket.on('client:votes-count-updated', (votesCount) => {
         socket.emit('server:votes-count-updated', votesCount);
     });
 
-    // user voted
     socket.on('client:action-point-updated', (data) => {
         socket.broadcast.emit('server:action-point-updated', data);
     });

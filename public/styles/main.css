@@ -195,6 +195,26 @@ body {
 .remove-note {
   margin-left: 1rem; }
 
+.stats {
+  margin-bottom: 20px;
+  text-align: center; }
+  .stats__item {
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #eeeeee;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px; }
+    .stats__item__count {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px; }
+    .stats__item--current-user {
+      background: #0b0;
+      color: #fff; }
+
 .button {
   font-size: 1.4rem;
   position: relative;

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../actions';
 import AddNote from './AddNote.jsx';
+import Stats from './Stats.jsx';
 
 const PT = React.PropTypes;
 
@@ -140,6 +141,8 @@ class Comp extends React.Component {
     render () {
         return (
             <div>
+                {this.isVoting() ? <Stats { ...this.props }/> : ''}
+
                 <section className="points">
                     <div className="points__column points__column--good">
                         <h2 className="points__column__h">Good Points:</h2>

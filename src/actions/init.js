@@ -65,6 +65,12 @@ function broadcastData (dispatch, getState) {
         dispatch(action);
     });
 
+    socket.on('server:votes-stat-updated', (state) => {
+        console.log(state);
+        const action = { type: 'VOTING_STAT_UPDATED', state };
+        dispatch(action);
+    });
+
     socket.on('disconnect', function(){});
 }
 

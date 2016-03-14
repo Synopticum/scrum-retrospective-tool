@@ -36,7 +36,8 @@ const allReducers = combineReducers({
         isLogged:             reducers.isLoggedReducer,
         isScrumMaster:        reducers.isScrumMasterReducer,
         isSprintActive:       reducers.isSprintActiveReducer,
-        isSprintLatest:       reducers.isSprintLatestReducer
+        isSprintLatest:       reducers.isSprintLatestReducer,
+        votingStats:          reducers.votingStatsReducer
     })
 });
 

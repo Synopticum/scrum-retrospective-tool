@@ -128,7 +128,7 @@ export default {
     },
 
     votePoint (point, sprintId) {
-        return function (dispatch) {
+        return function (dispatch, getState) {
             const alreadyVoted = _.contains(point.votes, localStorage.getItem('loggedAs'));
 
             if (!alreadyVoted) {
@@ -154,6 +154,7 @@ export default {
                     dispatch(successAction);
 
                     socket.emit('client:voted', point);
+                    socket.emit('client:votes-stat-updated', { user: localStorage.getItem('loggedAs'), undo: false });
                 }, function (response) {
                     // rejection
                     // dispatch the error action
@@ -202,6 +203,7 @@ export default {
                     dispatch(successAction);
 
                     socket.emit('client:voted', point);
+                    socket.emit('client:votes-stat-updated', { user: localStorage.getItem('loggedAs'), undo: true });
                 }, function (response) {
                     // rejection
                     // dispatch the error action
